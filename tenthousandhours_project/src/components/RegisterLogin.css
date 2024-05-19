@@ -1,0 +1,71 @@
+.register-login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+.register-login-container h1 {
+    position: absolute;
+    top: 260px;
+    font-size: 2em;
+    color: rgb(242, 209, 146);
+}
+
+.register-login-container h2 {
+    position: absolute;
+    top: 420px;
+    font-size: 1.4em;
+    margin-top: 0; /* Remove the top margin */
+    color: rgb(238, 187, 92);
+}
+
+/* .register-login-container button {
+    position: absolute;
+    top: 580px;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} */
+
+#reg {
+    position: absolute;
+    left: 660px;
+    top: 580px;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#reg:hover {
+    background-color: rgb(238, 187, 92);
+}
+
+#log {
+    position: absolute;
+    top: 580px;
+    left: 800px;
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#log:hover {
+    background-color: rgb(238, 187, 92);
+}
+
+/* .register-login-container button:hover {
+    background-color: rgb(238, 187, 92);
+} */

@@ -1,0 +1,67 @@
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex;
+    align-items: center;
+    height: 14vh;
+    gap: 20px;
+}
+
+.welcome-container h1 {
+    position: absolute;
+    top:0px;
+    font-size: 2em;
+    color: rgb(242, 209, 146)
+}
+
+#points-div {
+    position: absolute;
+    left: 300px;
+}
+.points {
+    color: orange;
+    font-weight: 750;
+}
+
+#points-redemption-div {
+    position: absolute;
+    top: 360px;
+    left: 300px;
+}
+#redeem-heading {
+    color: rgb(242, 209, 146);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.redemption-options {
+    color: orange;
+}
+.redemption-options-div {
+    margin-bottom: 6px;
+}
+
+#roadmap-button {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+}
+
+#note2 {
+    position: absolute;
+    top: 840px;
+    color: rgb(0, 174, 255);
+}
+#note1 {
+    position: absolute;
+    top: 814px;
+    color: rgb(0, 174, 255);
+}
+
+#logout-button {
+    position: absolute;
+    top: 80px;
+    left: 28px;
+}
+
+   

@@ -1,0 +1,11 @@
+.message-class {
+    /* position: absolute; */
+    /* bottom: 20px; */
+    width: 100%;
+    text-align: center;
+    margin-top: -100px;
+    /* margin-left: 260px; */
+    align-items: center;
+    color: lightblue;
+}
+

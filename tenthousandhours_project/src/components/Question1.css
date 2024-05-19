@@ -1,0 +1,6 @@
+#btns {
+    display: 'flex';
+    flex-direction: 'row';
+    align-items: 'centre';
+    margin-left: '70px';
+}

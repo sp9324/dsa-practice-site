@@ -1,0 +1,17 @@
+#selected-ques-div {
+    position: absolute;
+    left: 240px;
+    top: 60px;
+}
+
+#discussion {
+    position: absolute;
+    left: 1000px;
+    /* right: 12px; */
+    top: 12px;
+}
+
+#drop-down {
+    width: 240px;
+    color: white;
+}

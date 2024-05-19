@@ -1,0 +1,8 @@
+#modal 
+{
+    color: 'orange';
+}
+
+#modal:hover {
+    cursor: pointer;
+}

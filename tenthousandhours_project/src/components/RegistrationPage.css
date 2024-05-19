@@ -1,0 +1,56 @@
+.userinput {
+    /* color: orange; */
+    font-size: 1.2em;
+    /* background-color: rgb(243, 221, 182); */
+    height: 30px;
+    margin-left: 5px;
+    /* border: 1px solid rgb(255, 238, 210); */
+}
+
+/* .userinput:focus { */
+    /* border-color: 1px solid orange; Change the border color to orange when the input field is focused */
+/* } */
+
+/* .label { */
+    /* color: rgb(255, 145, 0); */
+    /* font-size: 1.5em; */
+/* } */
+
+.input-field::placeholder {
+    color: rgb(149, 149, 149);
+    font-style: italic;
+}
+
+.form {
+    padding: 10px;
+    position: absolute;
+    left: 640px;
+    top: 300px;
+    background-color: rgb(243, 221, 182);
+    border-radius: 20px;
+}
+
+#button {
+    position: absolute;
+    left: 160px;
+    top: 220px;
+    background-color: orange;
+    font-size: 1.2em;
+}
+
+#button:hover {
+    background-color: rgb(238, 187, 92);
+}
+
+#button-login {
+    position: absolute;
+    left: 760px;
+    top: 480px;
+    background-color: orange;
+    font-size: 1.2em;
+}
+
+#button-login:hover {
+    background-color: rgb(238, 187, 92);
+}
+
