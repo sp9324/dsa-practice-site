@@ -6,6 +6,11 @@ import cors from 'cors';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+import authenticate from './middleware/authenticate.js';
+
+dotenv.config();
 
 // CHATBOT 
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
@@ -79,7 +84,7 @@ app.get("/register", (req, res) => {
   res.render("RegistrationPage.js");
 });
 
-app.get("/discussionforum", (req, res) => {
+app.get("/discussionforum", authenticate, (req, res) => {
   res.render("LiveChat.js");
 });
 
@@ -114,19 +119,28 @@ app.post("/login", async (req, res) => {
 
     console.log("comparing password");
     const isPasswordValid = await compare(password, user.password);
-
     if (!isPasswordValid) {
       return res.status(400).json({ error: "Invalid password" });
     }
+    console.log("user's id: ", user._id);
+    const tokenPayload = {
+      id: user._id,
+    };
+    console.log("token payload: ", tokenPayload);
+    console.log("tokenPayload.id: ", tokenPayload.id);
+    let secret=process.env.ACCESS_TOKEN_SECRET;
+    console.log("secret: ", process.env.ACCESS_TOKEN_SECRET);
+    const accessToken = jwt.sign({id: tokenPayload.id}, secret);
+    console.log("access token: ", accessToken);
     console.log("successful");
-    res.status(200).json({ message: "Logged in successfully" });
+    res.status(200).json({ message: "Logged in successfully", accessToken });
   } catch (error) {
     res.status(500).json({ error: "Failed to login" });
   }
 });
 
 // points routes
-app.post("/api/retrievePoints", async (req, res) => {
+app.post("/api/retrievePoints", authenticate, async (req, res) => {
   const { name } = req.body;
   try {
     console.log("retrieving points");
@@ -141,7 +155,7 @@ app.post("/api/retrievePoints", async (req, res) => {
   }
 });
 
-app.post("/api/retrieveTotalPoints", async (req, res) => {
+app.post("/api/retrieveTotalPoints", authenticate, async (req, res) => {
   const { name } = req.body;
   try {
     const user = await User.findOne({ name: name });
@@ -154,24 +168,29 @@ app.post("/api/retrieveTotalPoints", async (req, res) => {
   }
 });
 
-app.post("/api/updateLLPoints", async (req, res) => {
+app.post("/api/updateLLPoints", authenticate, async (req, res) => {
   const { name } = req.body;
   try {
+    console.log("in updateLLPoints");
     const user = await User.findOne({ name: name });
     if (!user) {
+      console.log("user not found");
       return res.status(404).json({ status: "error", message: "User not found" });
     }
+    console.log("user found");
     if (user.points[0] >= 5) {
       return res.json({ status: "ok", message: "Points are already at the maximum" });
     }
-    await updateOne({ _id: user._id }, { $inc: { "points.0": 5, "totalPoints": 5 } });
+    console.log("updating points");
+    await User.updateOne({ _id: user._id }, { $inc: { "points.0": 5, "totalPoints": 5 } });
+    console.log("points updated");
     return res.json({ status: "ok" });
   } catch (error) {
     res.status(500).json({ status: "error" });
   }
 });
 
-app.post("/api/updateSTACKPoints", async (req, res) => {
+app.post("/api/updateSTACKPoints", authenticate, async (req, res) => {
   const { name } = req.body;
   try {
     const user = await User.findOne({ name: name });
@@ -181,14 +200,14 @@ app.post("/api/updateSTACKPoints", async (req, res) => {
     if (user.points[1] >= 5) {
       return res.json({ status: "ok", message: "Points are already at the maximum" });
     }
-    await updateOne({ _id: user._id }, { $inc: { "points.1": 5, "totalPoints": 5 } });
+    await User.updateOne({ _id: user._id }, { $inc: { "points.1": 5, "totalPoints": 5 } });
     return res.json({ status: "ok" });
   } catch (error) {
     res.status(500).json({ status: "error" });
   }
 });
 
-app.post("/api/deductCertPoints", async (req, res) => {
+app.post("/api/deductCertPoints", authenticate, authenticate, async (req, res) => {
   const { name } = req.body;
   try {
     const user=await User.findOne({name:name});
@@ -198,14 +217,14 @@ app.post("/api/deductCertPoints", async (req, res) => {
     if (user.totalPoints === 0 || user.totalPoints-1 < 0) {
       return res.json({ status: "ok", message: "Points are already at the minimum" });
     }
-    await updateOne({ _id: user._id }, { $inc: { "totalPoints": -1 } });
+    await User.updateOne({ _id: user._id }, { $inc: { "totalPoints": -1 } });
     return res.json({ status: "ok" });
   } catch (error) {
     res.status(500).json({ status: "error" });
   }
 });
 
-app.post("/api/deductNotesPoints", async (req, res) => {
+app.post("/api/deductNotesPoints", authenticate, async (req, res) => {
   const { name } = req.body;
   try {
     const user=await User.findOne({name:name});
@@ -215,14 +234,14 @@ app.post("/api/deductNotesPoints", async (req, res) => {
     if (user.totalPoints === 0 || user.totalPoints-2 < 0) {
       return res.json({ status: "ok", message: "Points are already at the minimum" });
     }
-    await updateOne({ _id: user._id }, { $inc: { "totalPoints": -2 } });
+    await User.updateOne({ _id: user._id }, { $inc: { "totalPoints": -2 } });
     return res.json({ status: "ok" });
   } catch (error) {
     res.status(500).json({ status: "error" });
   }
 });
 
-app.post("/api/deductYTPoints", async (req, res) => {
+app.post("/api/deductYTPoints", authenticate, async (req, res) => {
   const { name } = req.body;
   try {
     const user=await User.findOne({name:name});
@@ -232,7 +251,7 @@ app.post("/api/deductYTPoints", async (req, res) => {
     if (user.totalPoints === 0 || user.$markValidtotalPoints-3 < 0) {
       return res.json({ status: "ok", message: "Points are already at the minimum" });
     }
-    await updateOne({ _id: user._id }, { $inc: {"totalPoints": -3 } });
+    await User.updateOne({ _id: user._id }, { $inc: {"totalPoints": -3 } });
     return res.json({ status: "ok" });
   } catch (error) {
     res.status(500).json({ status: "error" });
@@ -240,7 +259,7 @@ app.post("/api/deductYTPoints", async (req, res) => {
 });
 
 // chatbot route
-app.post('/api/chatbot', async (req, res) => {
+app.post('/api/chatbot', authenticate, async (req, res) => {
   const userMessage = req.body.message;
   console.log(userMessage);
   if (!userMessage.trim()) {
@@ -281,10 +300,6 @@ socket.on('joinRoom', (room) => {
   console.log(`Socket ${socket.id} joined room ${room}`);
 });
 
-  // socket.on('sendMessage', (message) => {
-  //   io.emit('message', message);
-  // });
-  // When a user sends a message
   socket.on('sendMessage', ({ name, message, room }) => {
     io.to(room).emit('message', { name, message });
   });
