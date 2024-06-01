@@ -44,6 +44,7 @@ const io = new Server(httpServer, {
 });
 
 // CORS & JSON 
+app.options('*', cors());
 app.use(cors(
   {
     origin: '*',
