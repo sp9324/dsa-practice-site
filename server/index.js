@@ -52,7 +52,7 @@ const PORT = process.env.PORT || 3001; // Port for the server
 // connect('mongodb://127.0.0.1:27017/userDB', {
 //     useNewUrlParser: true,
 // });
-connect('mongodb+srv://headintheclouds104:NBokcjZNknyazWAJ@cluster-tenthousandhour.c8g2lus.mongodb.net/?retryWrites=true&w=majority&appName=cluster-tenthousandhours', {
+connect('mongodb+srv://headintheclouds104:NBokcjZNknyazWAJ@cluster-tenthousandhour.c8g2lus.mongodb.net/userDB?retryWrites=true&w=majority&appName=cluster-tenthousandhours', {
   useNewUrlParser: true,
 });
 
