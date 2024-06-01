@@ -25,12 +25,16 @@ const CodeEditor = () => {
 
   useEffect(() => {
     console.log("location:", location.state.name);
-
+    const storedToken = localStorage.getItem('token');
+    console.log("storedToken:", storedToken);
+    const accessToken = JSON.parse(storedToken);
+    console.log("accessToken:", accessToken);
     fetch(`http://localhost:3001/api/retrievePoints`, {
       method: "POST",
       crossDomain: true,
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
       },
@@ -78,7 +82,7 @@ const CodeEditor = () => {
       />
       <div style={{ position: 'absolute', top: '8px', right: '46px', width: '240px', color: 'orange' }}>Hey, there! I'm Partner! Click me!</div>
 </div>
-      <Modal isOpen={showChatbot} onClose={() => setShowChatbot(false)} size="lg">
+      <Modal isOpen={showChatbot} onClose={() => setShowChatbot(false)} size="2xl">
         <ModalOverlay />
         <ModalContent>
           <ModalHeader id='modal' style={{fontSize: '18px'}}>Hey, there! I'm Partner! Please be patient with me. I will take a while to prepare your reponse.</ModalHeader>
@@ -89,7 +93,7 @@ const CodeEditor = () => {
         </ModalContent>
       </Modal>
       {llpoints === 0 && stackpoints !== 0 && (
-        <Button className="vis-btns" 
+        <Button 
           variant="outline"
           colorScheme="blue"
           mb={4}
@@ -99,7 +103,7 @@ const CodeEditor = () => {
         </Button>
       )}
       {stackpoints === 0 && llpoints !== 0 && (
-        <Button
+        <Button id='stackvis'
           variant="outline"
           colorScheme="blue"
           mb={4}
@@ -116,6 +120,7 @@ const CodeEditor = () => {
             mb={4}
             onClick={handleLLClick}
             mr={4}
+            ml={52}
           >
             Go to Linked List Visualization
           </Button>
@@ -129,7 +134,7 @@ const CodeEditor = () => {
           </Button>
         </>
       )}
-      <Box>
+      <Box id='codeeditor'>
         <HStack spacing={4}>
           <Box w="50%">
             <LanguageSelector language={language} onSelect={onSelect} />

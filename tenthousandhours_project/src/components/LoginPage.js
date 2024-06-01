@@ -24,14 +24,21 @@ function LoginPage() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ name, email, password }),
+                body: JSON.stringify({ email, password }),
             });
+
+            const data = await response.json();
 
             if (response.status === 200) {
                 console.log("user logged in");
+                // Save the token in local storage
+                // localStorage.setItem('token', data.accessToken);
+                localStorage.setItem('token', JSON.stringify(data.accessToken));
                 navigate('/roadmap', {state: {name: name}});
             } else if(response.status === 400) {
                 console.log("invalid password");
+            } else {
+                console.log("unexpected error");
             }
         } catch (error) {
             console.log("network error");

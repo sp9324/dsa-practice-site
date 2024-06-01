@@ -69,12 +69,18 @@ const Output = ({ editorRef, language }) => {
       if (outputResult.join(' ').trim() === "5 4 3 2 1") {
         setIsCorrect(true);
         console.log(selectedQuestion);
+        // Parse the access token from local storage
+        const storedToken = localStorage.getItem('token');
+        console.log("storedToken:", storedToken);
+        const accessToken = JSON.parse(storedToken);
+        console.log("accessToken:", accessToken);
         fetch(`http://localhost:3001/api/update${selectedQuestion}Points`, { // Fetch the appropriate API
           method: "POST",
           crossDomain: true,
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
+            Authorization: `Bearer ${accessToken}`,
             "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({ name:location.state.name }),
@@ -125,6 +131,7 @@ const Output = ({ editorRef, language }) => {
 >
   Stack
 </Button>
+</div>
 <div id="discussion">
 <Select id='drop-down' value={room} onChange={(e) => setRoom(e.target.value)}>
           <option value="room1">Linked List discussion</option>
@@ -140,7 +147,7 @@ const Output = ({ editorRef, language }) => {
 Real-Time Discussion Forum
 </Button>
 </div>
-      </div>
+      
       {isCorrect && <Text color="green.500" fontSize="xl">CORRECT (You get +5 points!)</Text>}
       {!isCorrect && output && <Text color="red.500" fontSize="xl">Oh, no! Wrong answer... try again!</Text>}
       <Text mb={2} fontSize="md" color= 'orange'>

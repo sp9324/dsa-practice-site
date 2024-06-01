@@ -20,12 +20,16 @@ const Roadmap = () => {
     setTimeout(() => setExplode(false), 3000); // stop the explosion after 3 seconds
 
     console.log("location:", location.state.name);
-
+    const storedToken = localStorage.getItem('token');
+    console.log("storedToken:", storedToken);
+    const accessToken = JSON.parse(storedToken);
+    console.log("accessToken:", accessToken);
     fetch(`http://localhost:3001/api/retrievePoints`, {
       method: "POST",
       crossDomain: true,
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
       },

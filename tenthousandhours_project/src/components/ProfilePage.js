@@ -17,12 +17,16 @@ const ProfilePage = () => {
   useEffect(() => {
     setExplode(true);
     console.log("location:", location.state.name);
-
+    const storedToken = localStorage.getItem('token');
+    console.log("storedToken:", storedToken);
+    const accessToken = JSON.parse(storedToken);
+    console.log("accessToken:", accessToken);
     fetch(`http://localhost:3001/api/retrievePoints`, {
       method: "POST",
       crossDomain: true,
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
       },
@@ -41,12 +45,16 @@ const ProfilePage = () => {
 
   useEffect(() => {
     console.log("location:", location.state.name);
-
+    const storedToken = localStorage.getItem('token');
+    console.log("storedToken:", storedToken);
+    const accessToken = JSON.parse(storedToken);
+    console.log("accessToken:", accessToken);
     fetch(`http://localhost:3001/api/retrieveTotalPoints`, {
       method: "POST",
       crossDomain: true,
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
         Accept: "application/json",
         "Access-Control-Allow-Origin": "*",
       },
@@ -78,10 +86,15 @@ const ProfilePage = () => {
       event.preventDefault();
       alert('You need 5 Stack points to redeem this certificate!');
     } else if(totalpoints-1>0) {
+      const storedToken = localStorage.getItem('token');
+      console.log("storedToken:", storedToken);
+      const accessToken = JSON.parse(storedToken);
+      console.log("accessToken:", accessToken);
       fetch('http://localhost:3001/api/deductCertPoints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({ name: location.state.name }),
       })
@@ -100,10 +113,15 @@ const ProfilePage = () => {
   
   const handleDownloadNotes = (event) => {
     if(totalpoints-2>0) {
+      const storedToken = localStorage.getItem('token');
+      console.log("storedToken:", storedToken);
+      const accessToken = JSON.parse(storedToken);
+      console.log("accessToken:", accessToken);
       fetch('http://localhost:3001/api/deductNotesPoints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({ name: location.state.name }),
       })
@@ -131,10 +149,15 @@ const handleDone = () => {
 
 const handleYTClick = (event) => {
   if(totalpoints-3>0) {
+    const storedToken = localStorage.getItem('token');
+    console.log("storedToken:", storedToken);
+    const accessToken = JSON.parse(storedToken);
+    console.log("accessToken:", accessToken);
     fetch('http://localhost:3001/api/deductYTPoints', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify({ name: location.state.name }),
     })
