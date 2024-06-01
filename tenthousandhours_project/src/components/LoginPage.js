@@ -19,7 +19,8 @@ function LoginPage() {
         e.preventDefault();
 
         try {
-            const response = await fetch('http://localhost:3001/login', {
+            // const response = await fetch('http://localhost:3001/login', {
+            const response = await fetch('https://dsa-practice-site.vercel.app/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -31,8 +32,6 @@ function LoginPage() {
 
             if (response.status === 200) {
                 console.log("user logged in");
-                // Save the token in local storage
-                // localStorage.setItem('token', data.accessToken);
                 localStorage.setItem('token', JSON.stringify(data.accessToken));
                 navigate('/roadmap', {state: {name: name}});
             } else if(response.status === 400) {

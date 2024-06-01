@@ -40,10 +40,6 @@ const Output = ({ editorRef, language }) => {
     navigate('/discussionforum', { state: { name: location.state.name, room } });
   };
 
-  // const handleRoomChange = (event) => {
-  //   setRoom(event.target.value);
-  // };
-
   const handleRoom1Click = () => {
     setRoom('room1');
     console.log("room1 clicked");
@@ -74,7 +70,8 @@ const Output = ({ editorRef, language }) => {
         console.log("storedToken:", storedToken);
         const accessToken = JSON.parse(storedToken);
         console.log("accessToken:", accessToken);
-        fetch(`http://localhost:3001/api/update${selectedQuestion}Points`, { // Fetch the appropriate API
+        // fetch(`http://localhost:3001/api/update${selectedQuestion}Points`, { 
+        fetch(`https://dsa-practice-site.vercel.app/api/update${selectedQuestion}Points`, { 
           method: "POST",
           crossDomain: true,
           headers: {

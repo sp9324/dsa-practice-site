@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@chakra-ui/react";
-// import { set } from "mongoose";
 import { Typewriter } from 'react-simple-typewriter'
 import './ProfilePage.css';
 import ConfettiExplosion from "react-confetti-explosion";
@@ -21,7 +20,8 @@ const ProfilePage = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    fetch(`http://localhost:3001/api/retrievePoints`, {
+    // fetch(`http://localhost:3001/api/retrievePoints`, {
+    fetch('https://dsa-practice-site.vercel.app/api/retrievePoints', {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -49,7 +49,8 @@ const ProfilePage = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    fetch(`http://localhost:3001/api/retrieveTotalPoints`, {
+    // fetch(`http://localhost:3001/api/retrieveTotalPoints`, {
+    fetch('https://dsa-practice-site.vercel.app/api/retrieveTotalPoints', {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -90,7 +91,8 @@ const ProfilePage = () => {
       console.log("storedToken:", storedToken);
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
-      fetch('http://localhost:3001/api/deductCertPoints', {
+      // fetch('http://localhost:3001/api/deductCertPoints', {
+      fetch('https://dsa-practice-site.vercel.app/api/deductCertPoints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +119,8 @@ const ProfilePage = () => {
       console.log("storedToken:", storedToken);
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
-      fetch('http://localhost:3001/api/deductNotesPoints', {
+      // fetch('http://localhost:3001/api/deductNotesPoints', {
+      fetch('https://dsa-practice-site.vercel.app/api/deductNotesPoints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -153,7 +156,8 @@ const handleYTClick = (event) => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    fetch('http://localhost:3001/api/deductYTPoints', {
+    // fetch('http://localhost:3001/api/deductYTPoints', {
+    fetch('https://dsa-practice-site.vercel.app/api/deductYTPoints', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -240,11 +244,11 @@ const handleLogout = () => {
     </div>
     <br></br>
     <div className='redemption-options-div'>
-    <a className='redemption-options' href="https://www.youtube.com/watch?v=LOHBGyK3Hbs" target="_blank" onClick={handleYTClick}>Watch Linked List Tutorial📺 (Cost: 3 points)</a>
+    <a className='redemption-options' href="https://www.youtube.com/watch?v=LOHBGyK3Hbs" target="_blank" onClick={handleYTClick} rel="noreferrer">Watch Linked List Tutorial📺 (Cost: 3 points)</a>
     </div>
     <br></br>
     <div className='redemption-options-div'>
-    <a className='redemption-options' href="https://www.youtube.com/watch?v=-n2rVJE4vto" target="_blank" onClick={handleYTClick}>Watch Stack Tutorial📺 (Cost: 3 points)</a>
+    <a className='redemption-options' href="https://www.youtube.com/watch?v=-n2rVJE4vto" target="_blank" onClick={handleYTClick} rel="noreferrer">Watch Stack Tutorial📺 (Cost: 3 points)</a>
     </div>
     <br></br>
     <div className='redemption-options-div'>

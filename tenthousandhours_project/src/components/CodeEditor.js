@@ -29,7 +29,8 @@ const CodeEditor = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    fetch(`http://localhost:3001/api/retrievePoints`, {
+    // fetch(`http://localhost:3001/api/retrievePoints`, {
+    fetch('https://dsa-practice-site.vercel.app/api/retrievePoints', {
       method: "POST",
       crossDomain: true,
       headers: {
