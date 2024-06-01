@@ -38,7 +38,8 @@ const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: '*',
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST'],
   },
 });
 
@@ -46,7 +47,8 @@ const io = new Server(httpServer, {
 app.use(cors(
   {
     origin: '*',
-    allowedHeaders: ['Content-Type', 'Authorization']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    methods: ['GET', 'POST'],
   }
 ));
 app.use(json());
