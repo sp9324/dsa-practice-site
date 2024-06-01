@@ -37,12 +37,16 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: 'https://dsa-practice-site-client.vercel.app',
+    origin: '*',
   },
 });
 
 // CORS & JSON 
-app.use(cors());
+app.use(cors(
+  {
+    origin: '*',
+  }
+));
 app.use(json());
 
 // PORT
