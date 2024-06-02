@@ -29,7 +29,7 @@ const CodeEditor = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    fetch(`https://dsa-practice-site.onrender.com/api/retrievePoints`, {
+    fetch(`https://dsa-practice-site-server.onrender.com/api/retrievePoints`, {
     // fetch('https://dsa-practice-site.onrender/api/retrievePoints', {
       method: "POST",
       crossDomain: true,

@@ -11,7 +11,7 @@ function Chatbot() {
       console.log("storedToken:", storedToken);
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
-      const res = await fetch('https://dsa-practice-site.onrender.com/api/chatbot', {
+      const res = await fetch('https://dsa-practice-site-server.onrender.com/api/chatbot', {
       // const res=await fetch('https://dsa-practice-site.onrender/api/chatbot', {
         method: 'POST',
         headers: {

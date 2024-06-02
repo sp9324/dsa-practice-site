@@ -17,7 +17,7 @@ function RegistrationPage() {
 
         try {
             console.log("in handle submit");
-            const response = await fetch('https://dsa-practice-site.onrender.com/register', {
+            const response = await fetch('https://dsa-practice-site-server.onrender.com/register', {
             // const response = await fetch('https://dsa-practice-site.onrender/register', {
                 method: 'POST',
                 headers: {

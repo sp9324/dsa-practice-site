@@ -20,7 +20,7 @@ const ProfilePage = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    fetch(`https://dsa-practice-site.onrender.com/api/retrievePoints`, {
+    fetch(`https://dsa-practice-site-server.onrender.com/api/retrievePoints`, {
     // fetch('https://dsa-practice-site.onrender/api/retrievePoints', {
       method: "POST",
       crossDomain: true,
@@ -49,7 +49,7 @@ const ProfilePage = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    fetch(`https://dsa-practice-site.onrender.com/api/retrieveTotalPoints`, {
+    fetch(`https://dsa-practice-site-server.onrender.com/api/retrieveTotalPoints`, {
     // fetch('https://dsa-practice-site.onrender/api/retrieveTotalPoints', {
       method: "POST",
       crossDomain: true,
@@ -91,7 +91,7 @@ const ProfilePage = () => {
       console.log("storedToken:", storedToken);
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
-      fetch('https://dsa-practice-site.onrender.com/api/deductCertPoints', {
+      fetch('https://dsa-practice-site-server.onrender.com/api/deductCertPoints', {
       // fetch('https://dsa-practice-site.onrender/api/deductCertPoints', {
         method: 'POST',
         headers: {
@@ -119,7 +119,7 @@ const ProfilePage = () => {
       console.log("storedToken:", storedToken);
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
-      fetch('https://dsa-practice-site.onrender.com/api/deductNotesPoints', {
+      fetch('https://dsa-practice-site-server.onrender.com/api/deductNotesPoints', {
       // fetch('https://dsa-practice-site.onrender/api/deductNotesPoints', {
         method: 'POST',
         headers: {
@@ -156,7 +156,7 @@ const handleYTClick = (event) => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    fetch('https://dsa-practice-site.onrender.com/api/deductYTPoints', {
+    fetch('https://dsa-practice-site-server.onrender.com/api/deductYTPoints', {
     // fetch('https://dsa-practice-site.onrender/api/deductYTPoints', {
       method: 'POST',
       headers: {

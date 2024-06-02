@@ -5,7 +5,7 @@ import './LiveChat.css';
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-const socket = io('https://dsa-practice-site.onrender.com');
+const socket = io('https://dsa-practice-site-server.onrender.com');
 // const socket=io('https://dsa-practice-site.onrender');
 
 const LiveChat = () => {

@@ -19,7 +19,7 @@ function LoginPage() {
         e.preventDefault();
 
         try {
-            const response = await fetch('https://dsa-practice-site.onrender.com/login', {
+            const response = await fetch('https://dsa-practice-site-server.onrender.com/login', {
             // const response = await fetch('https://dsa-practice-site.onrender/login', {
                 method: 'POST',
                 headers: {

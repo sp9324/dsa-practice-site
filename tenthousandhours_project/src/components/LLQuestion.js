@@ -12,7 +12,7 @@ import {
 const LiveChat = () => {
   const socket = useMemo(
     () =>
-      io("https://dsa-practice-site.onrender.com", {
+      io("https://dsa-practice-site-server.onrender.com", {
         // io("https://dsa-practice-site.onrender", {
         withCredentials: true,
       }),

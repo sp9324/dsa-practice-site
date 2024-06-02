@@ -70,7 +70,7 @@ const Output = ({ editorRef, language }) => {
         console.log("storedToken:", storedToken);
         const accessToken = JSON.parse(storedToken);
         console.log("accessToken:", accessToken);
-        fetch(`https://dsa-practice-site.onrender.com/api/update${selectedQuestion}Points`, { 
+        fetch(`https://dsa-practice-site-server.onrender.com/api/update${selectedQuestion}Points`, { 
         // fetch(`https://dsa-practice-site.onrender/api/update${selectedQuestion}Points`, { 
           method: "POST",
           crossDomain: true,
