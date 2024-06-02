@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 // const socket = io('http://localhost:3001');
-const socket=io('https://dsa-practice-site.onrender.com');
+const socket=io('https://dsa-practice-site.onrender');
 
 const LiveChat = () => {
   const [message, setMessage] = useState('');
