@@ -19,8 +19,8 @@ function LoginPage() {
         e.preventDefault();
 
         try {
-            // const response = await fetch('http://localhost:3001/login', {
-            const response = await fetch('https://dsa-practice-site.onrender/login', {
+            const response = await fetch('https://dsa-practice-site.onrender.com/login', {
+            // const response = await fetch('https://dsa-practice-site.onrender/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

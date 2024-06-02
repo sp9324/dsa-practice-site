@@ -20,8 +20,8 @@ const ProfilePage = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    // fetch(`http://localhost:3001/api/retrievePoints`, {
-    fetch('https://dsa-practice-site.onrender/api/retrievePoints', {
+    fetch(`https://dsa-practice-site.onrender.com/api/retrievePoints`, {
+    // fetch('https://dsa-practice-site.onrender/api/retrievePoints', {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -49,8 +49,8 @@ const ProfilePage = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    // fetch(`http://localhost:3001/api/retrieveTotalPoints`, {
-    fetch('https://dsa-practice-site.onrender/api/retrieveTotalPoints', {
+    fetch(`https://dsa-practice-site.onrender.com/api/retrieveTotalPoints`, {
+    // fetch('https://dsa-practice-site.onrender/api/retrieveTotalPoints', {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -91,8 +91,8 @@ const ProfilePage = () => {
       console.log("storedToken:", storedToken);
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
-      // fetch('http://localhost:3001/api/deductCertPoints', {
-      fetch('https://dsa-practice-site.onrender/api/deductCertPoints', {
+      fetch('https://dsa-practice-site.onrender.com/api/deductCertPoints', {
+      // fetch('https://dsa-practice-site.onrender/api/deductCertPoints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -119,8 +119,8 @@ const ProfilePage = () => {
       console.log("storedToken:", storedToken);
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
-      // fetch('http://localhost:3001/api/deductNotesPoints', {
-      fetch('https://dsa-practice-site.onrender/api/deductNotesPoints', {
+      fetch('https://dsa-practice-site.onrender.com/api/deductNotesPoints', {
+      // fetch('https://dsa-practice-site.onrender/api/deductNotesPoints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -156,8 +156,8 @@ const handleYTClick = (event) => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    // fetch('http://localhost:3001/api/deductYTPoints', {
-    fetch('https://dsa-practice-site.onrender/api/deductYTPoints', {
+    fetch('https://dsa-practice-site.onrender.com/api/deductYTPoints', {
+    // fetch('https://dsa-practice-site.onrender/api/deductYTPoints', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

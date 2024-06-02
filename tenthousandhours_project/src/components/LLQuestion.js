@@ -12,8 +12,8 @@ import {
 const LiveChat = () => {
   const socket = useMemo(
     () =>
-      // io("http://localhost:3001", {
-        io("https://dsa-practice-site.onrender", {
+      io("https://dsa-practice-site.onrender.com", {
+        // io("https://dsa-practice-site.onrender", {
         withCredentials: true,
       }),
     []

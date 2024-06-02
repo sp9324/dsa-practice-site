@@ -24,8 +24,8 @@ const Roadmap = () => {
     console.log("storedToken:", storedToken);
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
-    // fetch(`http://localhost:3001/api/retrievePoints`, {
-    fetch('https://dsa-practice-site.onrender/api/retrievePoints', {
+    fetch(`https://dsa-practice-site.onrender.com/api/retrievePoints`, {
+    // fetch('https://dsa-practice-site.onrender/api/retrievePoints', {
       method: "POST",
       crossDomain: true,
       headers: {
