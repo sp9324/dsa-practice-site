@@ -21,7 +21,7 @@ const ProfilePage = () => {
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
     // fetch(`http://localhost:3001/api/retrievePoints`, {
-    fetch('https://dsa-practice-site.vercel.app/api/retrievePoints', {
+    fetch('https://dsa-practice-site.onrender.com/api/retrievePoints', {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -50,7 +50,7 @@ const ProfilePage = () => {
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
     // fetch(`http://localhost:3001/api/retrieveTotalPoints`, {
-    fetch('https://dsa-practice-site.vercel.app/api/retrieveTotalPoints', {
+    fetch('https://dsa-practice-site.onrender.com/api/retrieveTotalPoints', {
       method: "POST",
       crossDomain: true,
       headers: {
@@ -92,7 +92,7 @@ const ProfilePage = () => {
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
       // fetch('http://localhost:3001/api/deductCertPoints', {
-      fetch('https://dsa-practice-site.vercel.app/api/deductCertPoints', {
+      fetch('https://dsa-practice-site.onrender.com/api/deductCertPoints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -120,7 +120,7 @@ const ProfilePage = () => {
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
       // fetch('http://localhost:3001/api/deductNotesPoints', {
-      fetch('https://dsa-practice-site.vercel.app/api/deductNotesPoints', {
+      fetch('https://dsa-practice-site.onrender.com/api/deductNotesPoints', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -157,7 +157,7 @@ const handleYTClick = (event) => {
     const accessToken = JSON.parse(storedToken);
     console.log("accessToken:", accessToken);
     // fetch('http://localhost:3001/api/deductYTPoints', {
-    fetch('https://dsa-practice-site.vercel.app/api/deductYTPoints', {
+    fetch('https://dsa-practice-site.onrender.com/api/deductYTPoints', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

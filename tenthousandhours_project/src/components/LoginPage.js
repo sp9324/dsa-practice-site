@@ -20,7 +20,7 @@ function LoginPage() {
 
         try {
             // const response = await fetch('http://localhost:3001/login', {
-            const response = await fetch('https://dsa-practice-site.vercel.app/login', {
+            const response = await fetch('https://dsa-practice-site.onrender.com/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

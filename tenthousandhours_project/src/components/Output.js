@@ -71,7 +71,7 @@ const Output = ({ editorRef, language }) => {
         const accessToken = JSON.parse(storedToken);
         console.log("accessToken:", accessToken);
         // fetch(`http://localhost:3001/api/update${selectedQuestion}Points`, { 
-        fetch(`https://dsa-practice-site.vercel.app/api/update${selectedQuestion}Points`, { 
+        fetch(`https://dsa-practice-site.onrender.com/api/update${selectedQuestion}Points`, { 
           method: "POST",
           crossDomain: true,
           headers: {

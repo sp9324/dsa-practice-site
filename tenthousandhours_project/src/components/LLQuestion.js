@@ -13,7 +13,7 @@ const LiveChat = () => {
   const socket = useMemo(
     () =>
       // io("http://localhost:3001", {
-        io("https://dsa-practice-site.vercel.app", {
+        io("https://dsa-practice-site.onrender.com", {
         withCredentials: true,
       }),
     []

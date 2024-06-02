@@ -12,7 +12,7 @@ function Chatbot() {
       const accessToken = JSON.parse(storedToken);
       console.log("accessToken:", accessToken);
       // const res = await fetch('http://localhost:3001/api/chatbot', {
-      const res=await fetch('https://dsa-practice-site.vercel.app/api/chatbot', {
+      const res=await fetch('https://dsa-practice-site.onrender.com/api/chatbot', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
