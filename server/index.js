@@ -59,9 +59,7 @@ app.use(json());
 const PORT = process.env.PORT || 3001; // Port for the server
 
 // Connect to MongoDB
-// connect('mongodb://127.0.0.1:27017/userDB', {
-//     useNewUrlParser: true,
-// });
+
 connect('mongodb+srv://headintheclouds104:NBokcjZNknyazWAJ@cluster-tenthousandhour.c8g2lus.mongodb.net/userDB?retryWrites=true&w=majority&appName=cluster-tenthousandhours', {
   useNewUrlParser: true,
 });
@@ -103,6 +101,7 @@ app.get("/discussionforum", authenticate, (req, res) => {
 
 app.post("/register", async (req, res) => {
   try {
+    console.log("in register route");
     const hashedPassword = await hash(req.body.password, 10);
 
     const user = new User({
@@ -112,8 +111,19 @@ app.post("/register", async (req, res) => {
     });
 
     await user.save();
-    
-    res.json(user);
+    console.log("user saved");
+    console.log("user's id: ", user._id);
+    const tokenPayload = {
+      id: user._id,
+    };
+    console.log("token payload: ", tokenPayload);
+    console.log("tokenPayload.id: ", tokenPayload.id);
+    let secret=process.env.ACCESS_TOKEN_SECRET;
+    console.log("secret: ", process.env.ACCESS_TOKEN_SECRET);
+    const accessToken = jwt.sign({id: tokenPayload.id}, secret);
+    console.log("access token: ", accessToken);
+    console.log("successful");
+    res.json({user, accessToken});
   } catch (error) {
     res.status(500).json({ error: 'Failed to register user' });
   }
