@@ -16,6 +16,7 @@ function RegistrationPage() {
         e.preventDefault();
 
         try {
+            console.log("in handle submit");
             // const response = await fetch('http://localhost:3001/register', {
             const response = await fetch('https://dsa-practice-site.vercel.app/register', {
                 method: 'POST',
@@ -24,7 +25,7 @@ function RegistrationPage() {
                 },
                 body: JSON.stringify({ name, email, password }),
             });
-
+            console.log("response:", response);
             if (response.ok) {
                 console.log("user data sent to backend url");
                 navigate('/roadmap', {state: {name: name}});
