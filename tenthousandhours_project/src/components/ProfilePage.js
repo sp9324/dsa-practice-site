@@ -41,7 +41,7 @@ const ProfilePage = () => {
       .catch((error) => {
         console.error('Error:', error);
       });
-  });
+  },[location.state.name]);
 
   useEffect(() => {
     console.log("location:", location.state.name);
