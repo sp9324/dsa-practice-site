@@ -32,7 +32,9 @@ function LoginPage() {
 
             if (response.status === 200) {
                 console.log("user logged in");
+                console.log("setting token in local storage: ", data.accessToken);
                 localStorage.setItem('token', JSON.stringify(data.accessToken));
+                console.log("done setting token in local storage: ", data.accessToken);
                 navigate('/roadmap', {state: {name: name}});
             } else if(response.status === 400) {
                 console.log("invalid password");
