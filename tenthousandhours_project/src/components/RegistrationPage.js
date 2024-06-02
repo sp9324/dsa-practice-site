@@ -18,7 +18,7 @@ function RegistrationPage() {
         try {
             console.log("in handle submit");
             const response = await fetch('https://dsa-practice-site-server.onrender.com/register', {
-            // const response = await fetch('https://dsa-practice-site.onrender/register', {
+            // const response = await fetch('http://localhost:3001/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,7 +26,12 @@ function RegistrationPage() {
                 body: JSON.stringify({ name, email, password }),
             });
             console.log("response:", response);
+            const data=await response.json();
             if (response.ok) {
+                console.log("user logged in");
+                console.log("setting token in local storage: ", data.accessToken);
+                localStorage.setItem('token', JSON.stringify(data.accessToken));
+                console.log("done setting token in local storage: ", data.accessToken);
                 console.log("user data sent to backend url");
                 navigate('/roadmap', {state: {name: name}});
 
