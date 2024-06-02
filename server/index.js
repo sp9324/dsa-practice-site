@@ -9,6 +9,7 @@ import { Server } from "socket.io";
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import authenticate from './middleware/authenticate.js';
+import http from 'http';
 
 dotenv.config();
 
@@ -34,7 +35,7 @@ const chat = model.startChat({
 // SETTING UP EXPRESS
 const app = express();
 // socketio
-const httpServer = createServer(app);
+const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: '*',
