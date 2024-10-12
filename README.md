@@ -1,9 +1,8 @@
-This is my MERN stack project that aims to make practicing DSA simple and fun.
-[Preview](https://drive.google.com/drive/folders/19KhFiXdRWdj-9DC6Ky_BRYnVDY2-6VGa)
 
 # 🖥️ Ten Thousand Hours Project
 
-A platform designed to help you sharpen your Data Structures and Algorithms (DSA) skills. Practice DSA questions, earn points, and level up to unlock proficiency certificates! 🏆 Plus, get assistance from our chatbot, **Partner**, who will help you with DSA and tech-related questions.
+A platform designed to help you sharpen your Data Structures and Algorithms (DSA) skills. Practice DSA questions, earn points, and level up to unlock proficiency certificates! 🏆 Plus, get assistance from our chatbot, **Partner**, who will help you with DSA and tech-related questions. [Preview](https://drive.google.com/drive/folders/19KhFiXdRWdj-9DC6Ky_BRYnVDY2-6VGa)
+
 
 ## 📂 Project Structure
 
@@ -95,3 +94,20 @@ We welcome contributions! Here's how you can get involved:
 * 🔧 Follow coding standards and write clear comments.
 * ✅ Test your changes thoroughly before making a pull request.
 * 💬 Communicate politely and respect other developers' work.
+
+### 📚 How It Works
+
+- 🏅 Earn points by solving DSA questions based on their difficulty.
+- 🥇 Once you reach a threshold, claim your proficiency certificate.
+- 🤖 Use the Partner chatbot to get help on DSA and tech-related queries.
+
+### 🌐 Follow Me
+
+Stay connected and follow my journey:
+
+- GitHub: https://github.com/your-username
+- LinkedIn: https://www.linkedin.com/in/your-linkedin-profile
+
+### 💬 Feedback
+
+If you have any feedback or suggestions, feel free to reach out by opening an issue or contacting me on social media. Your input is highly appreciated!
