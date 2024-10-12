@@ -99,8 +99,8 @@ We welcome contributions! Here's how you can get involved:
 
 Stay connected and follow my journey:
 
-- GitHub: https://github.com/your-username
-- LinkedIn: https://www.linkedin.com/in/your-linkedin-profile
+- GitHub: https://github.com/sp9324
+- LinkedIn: https://www.linkedin.com/in/sp49/
 
 ### 💬 Feedback
 
