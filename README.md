@@ -45,5 +45,53 @@ Follow these steps to set up the project locally:
 
 2. Set up the Backend:
 - Navigate to the server directory:
-  ```bash
-  cd server
+    ```bash
+    cd server
+- Create a .env file in the server directory and add your MongoDB connection string and other environment variables:
+    ```bash
+    MONGODB_URI=your-mongodb-connection-string
+    PORT=5000
+    JWT_SECRET=your-jwt-secret-key
+- Start the server
+    ```bash
+    npm start
+- The server should now be running on http://localhost:5000.
+
+3. Set up the Frontend:
+- Navigate to the frontend directory:
+    ```bash
+    cd ../tenthousandhours_project
+- Install the required dependencies:
+    ```bash
+    npm install
+- Start the React app:
+    ```bash
+    npm start
+- The React app should now be running on http://localhost:3000.
+
+### 🤝 Contributing
+
+We welcome contributions! Here's how you can get involved:
+
+#### Steps to Contribute
+
+1. Fork the repository
+2. Clone your forked repo to your local machine:
+    ```bash
+    git clone https://github.com/your-username/your-forked-repo-name.git
+3. Create a new branch for your feature:
+    ```bash
+    git checkout -b feature-name
+4. Make your changes and commit them with clear messages:
+    ```bash
+    git commit -m "Add a brief message about your feature"
+5. Push your branch to GitHub:
+    ```bash
+    git push origin feature-name
+6. Create a Pull Request on the main repository with a description of your changes.
+
+#### Contribution Guidelines
+
+* 🔧 Follow coding standards and write clear comments.
+* ✅ Test your changes thoroughly before making a pull request.
+* 💬 Communicate politely and respect other developers' work.
