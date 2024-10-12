@@ -51,18 +51,20 @@ Follow these steps to set up the project locally:
     MONGODB_URI=your-mongodb-connection-string
     PORT=5000
     JWT_SECRET=your-jwt-secret-key
-- Start the server
+- navigate to server
     ```bash
-    npm start
+    cd dsa-practice-site
+    npm i
+    cd server
+- start server
+    nodemon index.js
 - The server should now be running on http://localhost:5000.
 
 3. Set up the Frontend:
 - Navigate to the frontend directory:
     ```bash
-    cd ../tenthousandhours_project
-- Install the required dependencies:
-    ```bash
-    npm install
+    cd dsa-practice-site
+    cd tenthousandhours_project
 - Start the React app:
     ```bash
     npm start
