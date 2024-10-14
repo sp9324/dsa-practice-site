@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   points: { type: [Number], default: [0, 0] },
   totalPoints:  { type: Number, default: 0 },
+  currentStreak: { type: Number, default: 0 },
+  lastActivityDate: { type: Date },              
 });
 
 const User = mongoose.model('User', userSchema);
