@@ -12,8 +12,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useChatContext } from "./../context/ChatContext.js";
 
-// const socket = io("https://dsa-practice-site-server.onrender.com");
-const socket = io("http://localhost:5000");
+const socket = io("https://dsa-practice-site-server.onrender.com");
 
 
 const LiveChat = () => {
