@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useChatContext } from "./../context/ChatContext.js";
 
 const socket = io("https://dsa-practice-site-server.onrender.com");
-// const socket=io('https://dsa-practice-site.onrender');
+
 
 const LiveChat = () => {
   const [message, setMessage] = useState("");
@@ -106,9 +106,17 @@ const LiveChat = () => {
           </InputGroup>
         </form>
         <ul>
-          {messages.map((message, index) => (
-            <li key={index} style={{ color: "lightblue" }}>
-              <strong>{message.name}</strong>: {message.message}
+          {messages.map((msg, index) => (
+            <li
+              key={index}
+              style={{
+                color: msg.name === location.state.name ? "lightgreen" : "lightblue",
+                textAlign: msg.name === location.state.name ? "right" : "left",
+                listStyleType: "none",
+                margin: "10px 0",
+              }}
+            >
+              <strong>{msg.name}</strong>: {msg.message}
             </li>
           ))}
         </ul>
