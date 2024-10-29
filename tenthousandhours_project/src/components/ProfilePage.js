@@ -15,62 +15,52 @@ const ProfilePage = () => {
 
   useEffect(() => {
     setExplode(true);
-    console.log("location:", location.state.name);
-    const storedToken = localStorage.getItem('token');
-    console.log("storedToken:", storedToken);
+    const storedToken = localStorage.getItem("token");
     const accessToken = JSON.parse(storedToken);
-    console.log("accessToken:", accessToken);
-    fetch(`https://dsa-practice-site-server.onrender.com/api/retrievePoints`, {
-    // fetch('http://localhost:3001/api/retrievePoints', {
+    fetch("https://dsa-practice-site-server.onrender.com/api/retrievePoints", {
       method: "POST",
       crossDomain: true,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ name: location.state.name }),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Response from API:', data);
-        setllpoints(data[0]);
-        setstackpoints(data[1]);
+        console.log("Response from API:", data);
+        setllpoints(data[0].points || 0); // Adjust as per data structure
+        setstackpoints(data[1].points || 0); // Adjust as per data structure
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
-  },[location.state.name]);
-
+  }, [location.state.name]);
+  
   useEffect(() => {
-    console.log("location:", location.state.name);
-    const storedToken = localStorage.getItem('token');
-    console.log("storedToken:", storedToken);
+    const storedToken = localStorage.getItem("token");
     const accessToken = JSON.parse(storedToken);
-    console.log("accessToken:", accessToken);
-    fetch(`https://dsa-practice-site-server.onrender.com/api/retrieveTotalPoints`, {
-    // fetch('http://localhost:3001/api/retrieveTotalPoints', {
+    fetch("https://dsa-practice-site-server.onrender.com/api/retrieveTotalPoints", {
       method: "POST",
       crossDomain: true,
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${accessToken}`,
         Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({ name: location.state.name }),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Response from API:', data);
-        setTotalPoints(data);
+        console.log("Response from API:", data);
+        setTotalPoints(data.points || 0); // Adjust as per data structure
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
-  });
-
+  }, [location.state.name]);
+  
   const handleRoadmapClick = () => {
     navigate('/roadmap', { state: { name: location.state.name } });
   };
@@ -257,9 +247,10 @@ const handleLogout = () => {
     </div>
     <Button id='roadmap-button' onClick={handleRoadmapClick}>Go to roadmap↗️</Button>
     <Button id='logout-button' onClick={handleLogout}>Logout ❌</Button>
-    <p id='note1'>Spend your earnings wisely! Don't waste your points by downloading the same material multiple times.</p>
-    <br></br>
-    <p id='note2'>Kindly refresh your page to see your updated total points (i.e., the points you have remaining). Module-wise points shown are points accumulated till date.</p>
+    <div id="notes">
+      <p>Spend your earnings wisely! Don't waste your points by downloading the same material multiple times.</p>
+      <p>Kindly refresh your page to see your updated total points (i.e., the points you have remaining). Module-wise points shown are points accumulated till date.</p>
+    </div>
     </div>
   );
 
