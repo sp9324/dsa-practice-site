@@ -139,6 +139,7 @@ const Output = ({ editorRef, language }) => {
         colorScheme="blue"
         mr={4}
         mb={2}
+        size="md" // Increases size
         onClick={handleChatClick}
 > 
 Real-Time Discussion Forum
